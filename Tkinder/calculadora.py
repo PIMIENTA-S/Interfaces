@@ -5,7 +5,7 @@ root = Tk()
 root.title("Calculadora")
 root.iconbitmap("img/icono.ico")
 root.resizable(0,0)
-root.geometry("320x260")
+root.geometry("315x309")
 
 
 # Boton pulsado
@@ -16,6 +16,64 @@ def click(valor):
     pantalla.insert(0, str(presionado) + str(valor))
 
 
+def igual():
+    try:
+        global num2
+        num2 = pantalla.get()
+        num2 = float(num2)
+        pantalla.delete(0, END)
+        if operador == "+":
+            pantalla.insert(0, num1 + num2)
+        if operador == "-":
+            pantalla.insert(0, num1 - num2)
+        if operador == "*":
+            pantalla.insert(0, num1 * num2)
+        if operador == "/":
+            pantalla.insert(0, num1 / num2)
+    except NameError:
+        pantalla.insert(0, "Error")
+
+
+
+def suma():
+    global num1
+    global operador
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operador = "+"
+
+def resta():
+    global num1
+    global operador
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operador = "-"
+
+def multiplicacion():
+    global num1
+    global operador
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operador = "*"
+
+def division():
+    global num1
+    global operador
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operador = "/"
+
+def punto():
+    num1 = pantalla.get()
+    pantalla.delete(0, END)
+    pantalla.insert(0, num1 + ".")
+
+def despejar():
+    pantalla.delete(0, END)
 
 # Pantalla
 
@@ -166,7 +224,8 @@ botonIgual = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=igual
 ).grid(row=4, column=0, padx=1, pady=1)
 
 # Boton punto
@@ -179,7 +238,8 @@ botonPunto = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=punto
 ).grid(row=4, column=2, padx=1, pady=1)
 
 # Boton suma
@@ -192,7 +252,8 @@ botonSuma = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=suma
 ).grid(row=1, column=3, padx=1, pady=1)
 
 # Boton resta
@@ -205,7 +266,8 @@ botonResta = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=resta
 ).grid(row=2, column=3, padx=1, pady=1)
 
 # Boton multiplicacion
@@ -218,7 +280,8 @@ botonMultiplicacion = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=multiplicacion
 ).grid(row=3, column=3, padx=1, pady=1)
 
 # Boton de division
@@ -231,8 +294,22 @@ botonDivision = Button(
     width=9,
     height=3,
     borderwidth=0,
-    cursor="hand2"
+    cursor="hand2",
+    command=division
 ).grid(row=4, column=3, padx=1, pady=1)
+
+botonDespejar = Button(
+    root,
+    text="C",
+    width=42,
+    height=3,
+    fg="black",
+    bg="deep sky blue",
+    borderwidth=0,
+    cursor="hand2",
+    command=despejar
+    )
+botonDespejar.grid(row=5, columnspan=5, padx=1, pady=1)
 
 
 root.mainloop()
