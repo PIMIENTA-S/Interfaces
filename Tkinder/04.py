@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.messagebox import *
 
 root = Tk()
+"""
 # ALINEACION EN TKINDER
 
 # Alinear a la izquiera (titulo 1)
@@ -33,5 +34,19 @@ def ventanaPregunta():
 
 
 boton = Button(root, text="presionar para aceptar", command=ventanaPregunta, width=75).pack()
+"""
+
+def message():
+    respuesta = askquestion(title="Pregunta", message="¿Deberia dejar de programar y salir un rato?")
+    if respuesta == "no":
+        showinfo(title="Respuesta correcta", message="Haz elegido la mejor opcion")
+    else:
+        retry = askretrycancel(title="Respuesta incorrecta", message="Haz click en reintentar")
+        if retry != "cancel":
+            message()
+
+# se tiene en cuenta los askquestion devuelven un valor boolean
+
+boton = Button(root, text="ok", command=message, width=50, height=20).grid(row=0)
 
 root.mainloop()
