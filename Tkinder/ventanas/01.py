@@ -11,33 +11,6 @@ root.title("Este es un titulo personalizado")
 
 root.iconbitmap("ruta_de_la_imagen.ico")
 
-# PACK
-# el empaquetado quedara de manera jerarquica a como la definamos en el codigo
-
-etiqueta1 = Label(root, text="Etiqueta numero 1")
-etiqueta2 = Label(root, text="Etiqueta numero 2")
-etiqueta1.pack()
-etiqueta2.pack()
-
-marco_principal = Frame()
-marco_principal.pack()
-
-# si no se especifica el tamaño se le asignara (0,0)
-marco_principal.config(width="800", height="600", bg="red")
-
-
-# GRID
-
-etiqueta1 = Label(root, text="Etiqueta numero 1")
-etiqueta2 = Label(root, text="Etiqueta numero 2")
-etiqueta1.grid(row=2, column=0)
-etiqueta2.grid(row=0, column=0)
-
-
-marco_principal = Frame()
-marco_principal.grid(row=1, column=0)
-
-marco_principal.config(width="800", height="600", bg="red")
 """
 
 
