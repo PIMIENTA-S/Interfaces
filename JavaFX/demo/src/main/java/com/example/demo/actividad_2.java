@@ -6,11 +6,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,9 +20,8 @@ public class actividad_2 extends Application {
         texto.setPadding(new Insets(15, 0, 0, 0));
 
         Menu opciones = new Menu("Opciones");
-        MenuItem scene1 = new MenuItem("Scene 1");
         MenuItem scene2 = new MenuItem("Scene 2");
-        opciones.getItems().addAll(scene1,scene2);
+        opciones.getItems().add(scene2);
 
         menu.getMenus().add(opciones);
         scene2.setOnAction(new EventHandler<ActionEvent>() {
@@ -60,8 +55,7 @@ public class actividad_2 extends Application {
 
         Menu opciones1 = new Menu("Opciones");
         MenuItem scene1 = new MenuItem("Scene 1");
-        MenuItem scene2 = new MenuItem("Scene 2");
-        opciones1.getItems().addAll(scene1,scene2);
+        opciones1.getItems().add(scene1);
 
         newStage.setTitle("Transicion menus");
 

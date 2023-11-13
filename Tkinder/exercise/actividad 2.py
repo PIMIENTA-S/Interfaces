@@ -9,7 +9,7 @@ root.geometry("300x200")
 
 def click():
     ventana_principal = Tk()
-    ventana_principal.title("Ventana principal")
+    root.title("Ventana principal")
     ventana_principal.geometry("300x200")
 
     menu = Menu(ventana_principal)
