@@ -44,7 +44,12 @@ def signin():
 
 # Funciones
 def on_enter(e):
-    user.delete(0, END)
+    if user.get() =="username":
+        user.delete(0, END)
+    elif user.get() == "":
+        code.delete(0, END)
+
+
 
 def on_leave(e):
     name = user.get()
@@ -69,7 +74,12 @@ Frame(frame, width=295, height=2, bg="black").place(x=25, y=107)
 
 # Funciones
 def on_enter1(a):
-    code.delete(0, END)
+    if code.get() == "password":
+        code.delete(0, END)
+    elif code.get() == "":
+        code.delete(0, END)
+
+        
 
 def on_leave1(a):
     password = code.get()
