@@ -20,7 +20,10 @@ header.place(x=100, y=5)
 
 # INICIO DE SESION
 def signin():
-    if user.get()=="llegna" and code.get()=="1234":
+    nombre = user.get()
+    contra = code.get()
+
+    if nombre=="llegna" and contra=="1234":
         alfa = Toplevel(root)
         alfa.title("Llegna Company S.A.S.")
         alfa.geometry("925x500+400+200")
@@ -29,6 +32,11 @@ def signin():
         Label(alfa, text="PIMIENTA'S", font=("Transformers Movie",100,"bold")).pack(expand=True)
 
         alfa.mainloop()
+    elif nombre != "llegna" and contra!="1234":
+        messagebox.showerror("Invalid", "Invalid Username and password")
+    
+    elif nombre != "llegna" or contra != "1234":
+        messagebox.showerror("Invalid", "Invalid Username or password")
 
 
 
